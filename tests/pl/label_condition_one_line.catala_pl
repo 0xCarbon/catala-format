@@ -1,17 +1,17 @@
-# Labelled definitions with a condition, written on one line
-
-The Polish grammar of tree-sitter-catala spells some keywords differently from
-the compiler (`calkowita`, `spelnione`, `dzien`, `czas trwania`), so this
-fixture only uses keywords both accept.
+# Labelled definitions and rules with a condition, written on one line
 
 ```catala
 deklaracja zakres A:
-  kontekst c typu czas
+  kontekst c typu czastrwania
+  kontekst n typu całkowita
   wyjście d typu czas
+  wyjście f warunek
 
 zakres A:
   etykieta r definicja d wynosi |2024-01-31|
-  wyjątek r definicja d pod warunkiem c > |2024-01-01| konsekwencja wynosi |2024-01-01|
-  etykieta baza definicja d pod warunkiem c > |2024-02-01| konsekwencja wynosi |2024-01-02|
-  wyjątek baza definicja d pod warunkiem c > |2024-03-01| konsekwencja wynosi |2024-01-03|
+  wyjątek r definicja d pod warunkiem c > 0 dzień konsekwencja wynosi |2024-01-01|
+  etykieta baza definicja d pod warunkiem c > 10 dzień konsekwencja wynosi |2024-01-02|
+  etykieta q zasada f pod warunkiem n > 0 konsekwencja spełnione
+  wyjątek q zasada f pod warunkiem n > 1 konsekwencja nie spełnione
+  wyjątek baza definicja d pod warunkiem c > 2 dzień konsekwencja wynosi |2024-01-03|
 ```

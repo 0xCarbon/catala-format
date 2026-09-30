@@ -1,0 +1,48 @@
+# Polskie słowa kluczowe
+
+Every keyword whose spelling tree-sitter-catala corrected, in a program the
+Polish lexer of the compiler accepts.
+
+```catala
+deklaracja struktura Osoba:
+  dane wiek typu całkowita
+  dane staz typu czastrwania
+
+deklaracja podwoj typu całkowita
+  zależy od n typu całkowita
+  wynosi n * 2
+
+deklaracja tozsamosc typu cokolwiek z rodzaj t
+  zależy od v typu cokolwiek z rodzaj t
+  wynosi v
+
+#[test]
+deklaracja zakres Test:
+  wyjście wieki typu lista całkowita
+  wyjście dorosli typu lista całkowita
+  wyjście najstarszy typu całkowita
+  wyjście razem typu całkowita
+  wyjście okres typu czastrwania
+  wyjście kwota typu pieniądze
+  wyjście flaga typu zerojedynkowy
+  wyjście spelniony warunek
+  wyjście posortowane typu lista całkowita
+  wyjście wynik typu całkowita
+  wyjście osoba typu Osoba
+
+zakres Test:
+  definicja wieki wynosi [17; 42; 30]
+  definicja dorosli wynosi lista a wśród wieki takie że to a >= 18
+  definicja najstarszy wynosi maksimum z wieki lub jeżeli lista pusta wtedy 0
+  definicja razem wynosi
+    połączyć wszystkie a wśród wieki w acc początkowo 0 wraz z acc + a
+  definicja okres wynosi 1 rok + 2 miesiąc + 3 dzień
+  definicja kwota wynosi 10 PLN +PLN 5.50 PLN
+  definicja flaga wynosi fałsz albo prawda
+  zasada spelniony pod warunkiem najstarszy > 40 konsekwencja spełnione
+  definicja posortowane wynosi sort wieki by increasing order
+  definicja wynik wynosi
+    niech y wynosi podwoj z 3 w
+    jeżeli y > 5 wtedy tozsamosc z y inaczej 0
+  definicja osoba wynosi Osoba { -- wiek: 42 -- staz: 10 dzień }
+```
