@@ -1,6 +1,6 @@
 #! /bin/bash
 
-dirs="en fr"
+dirs="en fr pl"
 
 check(){
     echo -n "Checking '$1': "

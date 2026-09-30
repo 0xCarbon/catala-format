@@ -1,0 +1,37 @@
+# Labelled definitions and rules with a condition, written on one line
+
+Formatting must be idempotent: the condition starts a new line, so the label
+is followed by a line break too.
+
+```catala
+declaration scope A:
+  context c content duration
+  output d content date
+  output f condition
+
+scope A:
+  label r definition d equals |2024-01-31|
+  exception r
+  definition d
+  under condition c > 0 day
+  consequence equals
+    |2024-01-01|
+  label base
+  definition d
+  under condition c > 10 day
+  consequence equals
+    |2024-01-02|
+  label q
+  rule f
+  under condition c > 0 day
+  consequence fulfilled
+  exception q
+  rule f
+  under condition c > 1 day
+  consequence not fulfilled
+  exception base
+  definition d
+  under condition c > 2 day
+  consequence equals
+    |2024-01-03|
+```

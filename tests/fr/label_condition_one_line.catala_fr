@@ -1,0 +1,16 @@
+# Définitions et règles étiquetées avec une condition, écrites sur une ligne
+
+```catala
+déclaration champ d'application A:
+  contexte c contenu durée
+  résultat d contenu date
+  résultat f condition
+
+champ d'application A:
+  étiquette r définition d égal à |2024-01-31|
+  exception r définition d sous condition c > 0 jour conséquence égal à |2024-01-01|
+  étiquette base définition d sous condition c > 10 jour conséquence égal à |2024-01-02|
+  étiquette q règle f sous condition c > 0 jour conséquence rempli
+  exception q règle f sous condition c > 1 jour conséquence non rempli
+  exception base définition d sous condition c > 2 jour conséquence égal à |2024-01-03|
+```

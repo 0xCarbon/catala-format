@@ -1,0 +1,29 @@
+# Labelled definitions with a condition, written on one line
+
+The Polish grammar of tree-sitter-catala spells some keywords differently from
+the compiler (`calkowita`, `spelnione`, `dzien`, `czas trwania`), so this
+fixture only uses keywords both accept.
+
+```catala
+deklaracja zakres A:
+  kontekst c typu czas
+  wyjście d typu czas
+
+zakres A:
+  etykieta r definicja d wynosi |2024-01-31|
+  wyjątek r
+  definicja d
+  pod warunkiem c > |2024-01-01|
+  konsekwencja wynosi
+    |2024-01-01|
+  etykieta baza
+  definicja d
+  pod warunkiem c > |2024-02-01|
+  konsekwencja wynosi
+    |2024-01-02|
+  wyjątek baza
+  definicja d
+  pod warunkiem c > |2024-03-01|
+  konsekwencja wynosi
+    |2024-01-03|
+```

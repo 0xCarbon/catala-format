@@ -393,6 +393,20 @@
  (#multi_line_only!)
 )
 
+;; A condition always starts a new line (see `UNDER_CONDITION` above), so an
+;; item with a condition is multi-line once formatted even when it was written
+;; on one line: break after its label regardless of the input layout, or the
+;; formatting would not be idempotent.
+(scope
+ (_
+  [(LABEL) (EXCEPTION)]
+  .
+  (label) @append_hardline
+  .
+  [(DEFINITION) (RULE)]
+  (UNDER_CONDITION))
+)
+
 ;; exception to implicit
 
 (scope

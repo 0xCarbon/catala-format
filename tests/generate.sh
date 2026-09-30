@@ -1,6 +1,6 @@
 #! /bin/bash
 
-dirs="en fr"
+dirs="en fr pl"
 
 for d in $dirs; do
     for i in $(ls $d/*.catala_$d); do
