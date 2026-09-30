@@ -1,0 +1,30 @@
+# Wielowyrazowe słowa kluczowe
+
+A multi-word keyword whose last word runs into an identifier is not that
+keyword: `lub jeżeli lista pusta_x` is `lub`, `jeżeli`, `lista` and the
+identifier `pusta_x`. The first words of multi-word keywords (`and`, `ze`,
+`pod`, `plan`, `takie`) are identifiers.
+
+```catala
+deklaracja l typu lista całkowita wynosi [3; 1; 2]
+
+#[test]
+deklaracja zakres T:
+  wyjście r typu zerojedynkowy
+  wyjście m typu lista całkowita
+  wyjście s typu lista całkowita
+
+zakres T:
+  definicja r wynosi
+    niech and wynosi prawda w
+    niech ze wynosi fałsz w
+    and lub ze
+  definicja m wynosi
+    niech plan wynosi l w
+    niech takie wynosi 1 w
+    lista x wśród plan takie że to x > takie
+  definicja s wynosi
+    niech pod wynosi l w
+    niech by wynosi 0 w
+    sort wszystkie x wśród pod by increasing order z x and then by
+```

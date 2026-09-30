@@ -712,7 +712,7 @@
 
 (e_coll_filter
  (LIST)
- ;; no (OF): the Polish grammar has none after LIST ("lista x wśród …")
+ ;; no (OF): LIST is "list of", "liste de" or "lista" ("lista x wśród …")
  (_)
  (AMONG)
  coll: (_) @append_indent_start @append_spaced_softline

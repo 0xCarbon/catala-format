@@ -6,8 +6,12 @@
       grammar = {
         source = {
           git = {
-            git = "https://github.com/CatalaLang/tree-sitter-catala.git",
-            rev = "6c70cabc86f293d6eb3209275efc1d080a97d7cc",
+            # Branch teko/fixes of the 0xCarbon fork, which lexes the
+            # multi-word keywords as whole words like the compiler, until
+            # it is available upstream. See "Local grammars" in README.md
+            # to build it from a local clone.
+            git = "https://github.com/0xCarbon/tree-sitter-catala.git",
+            rev = "b222e1118db0a45db4422a8183fdb346ac67de11",
             subdir = "catala_en",
           }
         }
@@ -19,8 +23,12 @@
       grammar = {
         source = {
           git = {
-            git = "https://github.com/CatalaLang/tree-sitter-catala.git",
-            rev = "6c70cabc86f293d6eb3209275efc1d080a97d7cc",
+            # Branch teko/fixes of the 0xCarbon fork, which lexes the
+            # multi-word keywords as whole words like the compiler, until
+            # it is available upstream. See "Local grammars" in README.md
+            # to build it from a local clone.
+            git = "https://github.com/0xCarbon/tree-sitter-catala.git",
+            rev = "b222e1118db0a45db4422a8183fdb346ac67de11",
             subdir = "catala_fr",
           }
         }
@@ -37,7 +45,7 @@
             # upstream. See "Local grammars" in README.md to build it from
             # a local clone.
             git = "https://github.com/0xCarbon/tree-sitter-catala.git",
-            rev = "d22d738be2c6f84aebb357945859b70f3b5a7525",
+            rev = "b222e1118db0a45db4422a8183fdb346ac67de11",
             subdir = "catala_pl",
           }
         }

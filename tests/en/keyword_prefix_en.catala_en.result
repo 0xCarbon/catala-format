@@ -1,0 +1,34 @@
+# Multi-word keywords followed by an identifier
+
+A multi-word keyword whose last word runs into an identifier is not that
+keyword: `and then_what` is `and` followed by the identifier `then_what`,
+and `with pattern_x` is `with` followed by `pattern_x`. The first words of
+multi-word keywords (`list`, `optional`, `we`, `map`) are identifiers.
+
+```catala
+declaration l content list of integer equals [ 3; 1; 2 ]
+
+#[test]
+declaration scope T:
+  output r content boolean
+  output n content integer
+  output m content list of integer
+  output s content list of integer
+
+scope T:
+  definition r equals
+    let then_what equals true in
+    let then2 equals false in
+    (true and then_what) or (false and then2)
+  definition n equals
+    let pattern_x equals 1 in
+    combine all x among l in acc initially 0 with pattern_x
+  definition m equals
+    let list equals l in
+    let optional equals 1 in
+    list of x among list such that x > optional
+  definition s equals
+    let we equals l in
+    let map equals 0 in
+    sort all x among we in increasing order of x and then map
+```

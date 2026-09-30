@@ -1,0 +1,30 @@
+# Mots-clés composés suivis d'un identifiant
+
+Un mot-clé composé dont le dernier mot se prolonge en identifiant n'est pas
+ce mot-clé : `ou bien_x` est `ou` suivi de l'identifiant `bien_x`. Les
+premiers mots des mots-clés composés (`liste`, `optionnel`, `égal`, `on`)
+sont des identifiants.
+
+```catala
+déclaration l contenu liste de entier égal à [ 3; 1; 2 ]
+
+#[test]
+déclaration champ d'application T:
+  résultat r contenu booléen
+  résultat m contenu liste de entier
+  résultat s contenu liste de entier
+
+champ d'application T:
+  définition r égal à
+    soit bien_x égal à vrai dans
+    soit bien2 égal à faux dans
+    (vrai ou bien_x) et (faux ou bien2)
+  définition m égal à
+    soit liste égal à l dans
+    soit optionnel égal à 1 dans
+    liste de x parmi liste tel que x > optionnel
+  définition s égal à
+    soit égal égal à l dans
+    soit on égal à 0 dans
+    trie tout x parmi égal par ordre croissant de x puis on
+```
