@@ -9,3 +9,6 @@ target/
 *.~*~
 .envrc
 .direnv
+
+# Local topiary configuration (see "Local grammars" in README.md)
+/catala.local.ncl

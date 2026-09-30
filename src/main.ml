@@ -134,6 +134,20 @@ let files_lookup () =
   Format.eprintf "Error: unable to locate catala-format's config files@.";
   Stdlib.exit Cmdliner.Cmd.Exit.internal_error
 
+(* A topiary configuration given by the environment replaces the installed one,
+   e.g. to build the grammars from a local clone during development *)
+let config_env_var = "CATALA_FORMAT_CONFIG"
+
+let with_config_override files =
+  match Sys.getenv_opt config_env_var with
+  | None | Some "" -> files
+  | Some config_file when Sys.file_exists config_file ->
+    { files with config_file = Some (normalize_path config_file) }
+  | Some config_file ->
+    Format.eprintf "Error: %s is set to %s, which does not exist@."
+      config_env_var config_file;
+    Stdlib.exit Cmdliner.Cmd.Exit.internal_error
+
 let supported_languages = ["catala_en"; "catala_fr"; "catala_pl"]
 
 let error s =
@@ -364,7 +378,9 @@ let format_cmd =
     & info ["s"; "skip-idempotence"]
         ~doc:"When specified, the formatting idempotence check will be skipped."
   in
-  let { config_file; query_file; topiary_path } = files_lookup () in
+  let { config_file; query_file; topiary_path } =
+    with_config_override (files_lookup ())
+  in
   let f lang in_place skip_idempotence buffer_name file =
     let file =
       match file with `Stdin -> `Stdin buffer_name | `File _ as x -> x
